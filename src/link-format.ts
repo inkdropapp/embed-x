@@ -1,13 +1,13 @@
 import { editor } from 'inkdrop'
 import type { Extension } from '@codemirror/state'
 import type { LinkFormatItem, LinkFormatsConfig } from '@inkdropapp/types'
-import { isXURL, getEmbedURL } from './utils.js'
+import { isXURL, getEmbedURL, getThemeAppearance } from './utils.js'
 
 const isLocal = location.protocol === 'file:'
 
 function getXIframe(href: string): string {
   const frameId = 'twitter-' + Math.random()
-  const src = getEmbedURL(href, frameId, isLocal)
+  const src = getEmbedURL(href, frameId, isLocal, getThemeAppearance(inkdrop))
   return [
     `<iframe`,
     ` src="${src}"`,

@@ -1,6 +1,7 @@
 import { markdownRenderer } from 'inkdrop'
 import type { Extension } from '@codemirror/state'
-import { xProvider, PROVIDER_ID } from './x.js'
+import type { Environment } from '@inkdropapp/types'
+import { createXProvider, PROVIDER_ID } from './x.js'
 import { xLinkFormatExtension } from './link-format.js'
 
 const ALLOWED_SCHEMES = ['https:', 'http:']
@@ -17,8 +18,8 @@ function isSafeUri(uri: string): boolean {
 class InkdropPlugin {
   private extension: Extension | null = null
 
-  activate() {
-    markdownRenderer.embeddings.register(xProvider)
+  activate(app: Environment) {
+    markdownRenderer.embeddings.register(createXProvider(app))
     window.addEventListener('message', this.handleMessageFromFrame, false)
 
     this.extension = xLinkFormatExtension()
