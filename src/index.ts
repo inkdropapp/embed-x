@@ -1,8 +1,9 @@
-import { markdownRenderer } from 'inkdrop'
 import type { Extension } from '@codemirror/state'
 import type { Environment } from '@inkdropapp/types'
-import { createXProvider, PROVIDER_ID } from './x.js'
+import { markdownRenderer } from 'inkdrop'
+
 import { xLinkFormatExtension } from './link-format.js'
+import { createXProvider, PROVIDER_ID } from './x.js'
 
 const ALLOWED_SCHEMES = ['https:', 'http:']
 

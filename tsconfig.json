@@ -16,9 +16,7 @@
     "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
-      "inkdrop": [
-        "./node_modules/@inkdropapp/types/src/inkdrop-module/index.d.ts"
-      ]
+      "inkdrop": ["./node_modules/@inkdropapp/types/src/inkdrop-module/index.d.ts"]
     },
     "types": ["@inkdropapp/types"]
   },

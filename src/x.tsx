@@ -1,15 +1,7 @@
+import type { EmbeddedComponentProps, EmbeddingProvider, Environment } from '@inkdropapp/types'
 import { useEffect, useRef, useState } from 'react'
-import type {
-  EmbeddedComponentProps,
-  EmbeddingProvider,
-  Environment
-} from '@inkdropapp/types'
-import {
-  isXURL,
-  getEmbedURL,
-  getThemeAppearance,
-  type ThemeAppearance
-} from './utils.js'
+
+import { isXURL, getEmbedURL, getThemeAppearance, type ThemeAppearance } from './utils.js'
 
 export const PROVIDER_ID = 'embed:x'
 
@@ -25,9 +17,7 @@ export function createXProvider(app: Environment): EmbeddingProvider {
     const { href } = props
     const contentFrame = useRef<HTMLIFrameElement>(null)
     const [frameId] = useState('twitter-' + Math.random())
-    const [theme, setTheme] = useState<ThemeAppearance>(() =>
-      getThemeAppearance(app)
-    )
+    const [theme, setTheme] = useState<ThemeAppearance>(() => getThemeAppearance(app))
 
     useEffect(() => {
       const disposable = app.themes.onDidChangeActiveThemes(() => {
@@ -43,13 +33,7 @@ export function createXProvider(app: Environment): EmbeddingProvider {
     const url = getEmbedURL(href, frameId, isLocal, theme)
 
     return (
-      <iframe
-        id={frameId}
-        className="embed-frame"
-        ref={contentFrame}
-        src={url}
-        allowTransparency
-      />
+      <iframe id={frameId} className="embed-frame" ref={contentFrame} src={url} allowTransparency />
     )
   }
 

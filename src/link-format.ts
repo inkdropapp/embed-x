@@ -1,6 +1,7 @@
-import { editor } from 'inkdrop'
 import type { Extension } from '@codemirror/state'
 import type { LinkFormatItem, LinkFormatsConfig } from '@inkdropapp/types'
+import { editor } from 'inkdrop'
+
 import { isXURL, getEmbedURL, getThemeAppearance } from './utils.js'
 
 const isLocal = location.protocol === 'file:'
