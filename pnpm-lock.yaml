@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@codemirror/state':
+        specifier: ^6.7.0
+        version: 6.7.0
       '@inkdropapp/types':
         specifier: ^0.0.9
         version: 0.0.9
