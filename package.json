@@ -1,7 +1,7 @@
 {
   "name": "embed-x",
   "main": "./lib/index.js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Embed X (Twitter) posts in Inkdrop notes",
   "keywords": [
     "x",
